@@ -7,9 +7,12 @@ on:
     branches: [ '*' ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Test
-      run: echo "Bom dia"
+    - name: Build
+      run: go build -v main.go
+
+  # docker:
+  #   needs: app
+  #   uses: ./.github/workflows/docker.yml
