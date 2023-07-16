@@ -8,3 +8,4 @@ jobs:
     runs_on: ubuntu:latest
     steps:
     - name: setup docker build
+      run: echo "setup docker"
