@@ -1,0 +1,10 @@
+name: Docker
+
+on:
+  workflow_call:
+
+jobs:
+  docker:
+    runs_on: ubuntu:latest
+    steps:
+    - name: setup docker build
