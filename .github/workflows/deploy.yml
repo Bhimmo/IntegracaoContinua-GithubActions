@@ -13,8 +13,7 @@ jobs:
       run: echo "Merge maste"
 
     - name: Branch Merge
-        uses: everlytic/branch-merge@1.1.5
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-          target_branch: main
+      uses: everlytic/branch-merge@1.1.5
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        target_branch: main
