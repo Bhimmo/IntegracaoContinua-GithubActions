@@ -11,15 +11,15 @@ jobs:
     - uses: actions/checkout@v3
     - name: Merge branch master
       run: echo "Merge maste"
-      
-    - name: Merge Branches
-      # You may pin to the exact commit or the version.
-      # uses: devvspaces/merge-branches@c19380af9cd248c7e4e6d964f3f068841e9f603a
-      uses: devvspaces/merge-branches@v1
-      with:
-        # Set to [secrets.GITHUB_TOKEN].
-        token: ${{ secrets.GITHUB_TOKEN }}
-        # Branch we want to merge to another branch
+
+    - name: Merge branch
+      uses: devmasx/merge-branch@1.4.0
+      with: 
+        # PR Label name
+        label_name: teste
+        # The name of target branch to merge
+        target_branch: main
+        # Alias head_to_merge input
         from_branch: ${{ github.ref }}
-        # Branch we want to merge another branch on
-        to_branch: main
+        # Github token
+        github_token: ${{ secrets.GITHUB_TOKEN }}
