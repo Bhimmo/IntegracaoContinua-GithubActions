@@ -18,3 +18,7 @@ jobs:
   docker:
     needs: build-app
     uses: ./.github/workflows/docker.yml
+
+  deploy:
+    needs: docker
+    uses: ./.github/workflows/deploy.yml
