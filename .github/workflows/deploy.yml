@@ -33,6 +33,7 @@ jobs:
       MERGE_REQUIRED_APPROVALS: "0"
       UPDATE_LABELS: "automerge"
       UPDATE_METHOD: "rebase"
+      automerge: yes
     steps:
       - id: automerge
         name: automerge
