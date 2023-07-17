@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-app:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
 
@@ -17,4 +17,4 @@ jobs:
 
   docker:
     needs: build-app
-    uses: ./.github/workflows/Docker.yml
+    uses: ./.github/workflows/docker.yml
