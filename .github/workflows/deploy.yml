@@ -1,25 +1,29 @@
-name: Deploy
+name: Merge to Main
 
 on:
-  workflow_call:
-
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
+  status: {}
 jobs:
-
-  merge-master:
+  automerge:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Merge branch master
-      run: echo "Merge maste"
-
-    - name: Merge branch
-      uses: devmasx/merge-branch@1.4.0
-      with: 
-        # PR Label name
-        label_name: teste
-        # The name of target branch to merge
-        target_branch: main
-        # Alias head_to_merge input
-        from_branch: ${{ github.ref }}
-        # Github token
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.15.6"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
