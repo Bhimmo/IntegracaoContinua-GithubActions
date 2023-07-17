@@ -4,8 +4,16 @@ on:
   workflow_call:
 
 jobs:
-  docker:
+  build-image:
     runs_on: ubuntu:latest
     steps:
-    - name: setup docker build
-      run: echo "setup docker"
+    - uses: actions/checkout@v3
+    - name: docker image build
+      run: docker build -t CI:v1 .
+
+  container-run:
+    runs_on: ubuntu:latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: docker container run
+      run: docker container run -d --name CI_container CI:v1

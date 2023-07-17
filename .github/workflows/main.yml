@@ -5,14 +5,14 @@ on:
     branches: [ '*' ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build-app:
+    runs-on: golang-alpine
     steps:
     - uses: actions/checkout@v3
 
     - name: Build
       run: go build ./main.go
 
-  # docker:
-  #   needs: app
-  #   uses: ./.github/workflows/docker.yml
+  docker:
+    needs: build-app
+    uses: ./.github/workflows/docker.yml
