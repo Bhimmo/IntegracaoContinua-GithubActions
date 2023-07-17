@@ -4,16 +4,19 @@ on:
   workflow_call:
 
 jobs:
-  buildimage:
-    # runs_on: ubuntu:latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: docker image build
-      run: docker build -t CI:v1 .
+  buildImage:
 
-  containerrun:
     runs_on: ubuntu:latest
     steps:
     - uses: actions/checkout@v3
+    - name: docker image build
+      run: echo "bom dia"
+      # run: docker build -t CI:v1 .
+
+  containerRun:
+    # runs_on: ubuntu:latest
+    steps:
+    - uses: actions/checkout@v3
     - name: docker container run
-      run: docker container run -d --name CI_container CI:v1
+      run: echo "bom noite"
+      # run: docker container run -d --name CI_container CI:v1
