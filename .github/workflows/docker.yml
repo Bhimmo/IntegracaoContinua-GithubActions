@@ -13,6 +13,7 @@ jobs:
       run: docker build -t CI:v1 .
 
   containerRun:
+    needs: buildImage
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
