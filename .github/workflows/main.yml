@@ -1,11 +1,13 @@
 name: Main
 
 on:
+  push:
+    branches: [ '*' ]
   pull_request:
     branches: [ '*' ]
 
 jobs:
-  build:
+  build-app:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -13,6 +15,10 @@ jobs:
     - name: Build
       run: go build ./main.go
 
-  # docker:
-  #   needs: app
-  #   uses: ./.github/workflows/docker.yml
+  docker:
+    needs: build-app
+    uses: ./.github/workflows/docker.yml
+
+  # deploy:
+  #   needs: docker
+  #   uses: ./.github/workflows/deploy.yml

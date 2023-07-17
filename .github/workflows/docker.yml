@@ -4,8 +4,10 @@ on:
   workflow_call:
 
 jobs:
-  docker:
-    runs_on: ubuntu:latest
+
+  buildImage:
+    runs-on: ubuntu-latest
     steps:
-    - name: setup docker build
-      run: echo "setup docker"
+    - uses: actions/checkout@v3
+    - name: docker image build
+      run: docker build -t integra:v1 .
