@@ -6,13 +6,20 @@ on:
 jobs:
 
   merge-master:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Merge branch master
       run: echo "Merge maste"
       
-    - name: Manage Merge
-      uses: sanjeev-labs/manage-merge@v1.0
+    - name: Merge Branches
+      # You may pin to the exact commit or the version.
+      # uses: devvspaces/merge-branches@c19380af9cd248c7e4e6d964f3f068841e9f603a
+      uses: devvspaces/merge-branches@v1
+      with:
+        # Set to [secrets.GITHUB_TOKEN].
+        token: ${{ secrets.GITHUB_TOKEN }}
+        # Branch we want to merge to another branch
+        from_branch: ${{ github.ref }}
+        # Branch we want to merge another branch on
+        to_branch: main
