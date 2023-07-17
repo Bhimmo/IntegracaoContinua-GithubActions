@@ -12,8 +12,14 @@ jobs:
     - name: Merge branch master
       run: echo "Merge maste"
 
-    - name: Branch Merge
-      uses: everlytic/branch-merge@1.1.5
-      with:
+    - name: Merge branch
+      uses: devmasx/merge-branch@1.4.0
+      with: 
+        # PR Label name
+        label_name: teste
+        # The name of target branch to merge
+        target_branch: main
+        # Alias head_to_merge input
+        from_branch: ${{ github.ref }}
+        # Github token
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        target_branch: refs/heads/main
