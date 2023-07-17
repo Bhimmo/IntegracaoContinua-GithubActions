@@ -31,5 +31,5 @@ jobs:
     - name: Merge master back to dev
       run: |
           git fetch --unshallow
-          git checkout main
+          git checkout origin/main
           git merge ${github.ref}
