@@ -32,4 +32,4 @@ jobs:
       run: |
           git fetch --unshallow
           git checkout origin/main
-          git merge ${github.ref}
+          git merge origin/DEV-005
