@@ -14,3 +14,6 @@ jobs:
       
     - name: Manage Merge
       uses: sanjeev-labs/manage-merge@v1.0
+      
+    - name: Is Ready
+      uses: AlbertHernandez/is-ready-action@v1.1.0
